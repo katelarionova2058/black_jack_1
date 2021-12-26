@@ -7,11 +7,11 @@ class Interface
     puts "Игра началась"
   end
 
-	def game_over
-		puts "Игра завершена"
-	end
+  def game_over
+    puts "Игра завершена"
+  end
 
-	def choice_menu(cards, score, player_bank, dealer_bank)
+  def choice_menu(cards, score, player_bank, dealer_bank)
     puts "Ваши карты: #{cards}. Ваш счёт: #{score}. Ваш банк: $#{player_bank}"
     puts "Карты дилера [**, **]. Счёт дилера [**]. Банк дилера: $#{dealer_bank}"
     puts '0 - закончить игру'
@@ -20,11 +20,11 @@ class Interface
     puts '3 - пропустить ход'
   end
 
-	def max_cards
+  def max_cards
     puts 'У вас максимальное количество карт! Ход переходит дилеру'
   end
 
-	def added_card
+  def added_card
     puts 'Вы взяли дополнительную карту, ход переходит к дилеру'
   end
 
