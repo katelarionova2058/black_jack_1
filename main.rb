@@ -37,16 +37,16 @@ class Main
       @player.hand.cards = []
     end
 
-	def bank_change(player)
-		if player.bank > 10
-			player.bank -= 10
-		else
-			interface.game_over
-			exit
-		end
-	end
+    def bank_change(player)
+      if player.bank > 10
+        player.bank -= 10
+      else
+	interface.game_over
+	exit
+      end
+    end
 
-	def choose_turn
+   def choose_turn
     @interface.choice_menu(@player.hand.cards, @player.hand.check, @player.bank, @diller.bank)
     input = gets.chomp.to_i
     action(input)
@@ -61,9 +61,9 @@ class Main
       if @player.hand.cards.size < 3
       	third_card(@player.name)
       else
-	      @interface.max_cards
-	      diller_move
-	    end
+        @interface.max_cards
+	diller_move
+      end
     end
   end
 
@@ -91,16 +91,16 @@ class Main
   end
 
   def diller_move
-	  if @diller.hand.check >= 17
-	    @interface.dealer_skips
-	    get_turn(nil)
-	  else
-	    @diller.hand.check < 17 || @diller.hand.cards.size < 3
-	    third_card('Diller')
-	  end
-	end
+    if @diller.hand.check >= 17
+      @interface.dealer_skips
+      get_turn(nil)
+    else
+      @diller.hand.check < 17 || @diller.hand.cards.size < 3
+      third_card('Diller')
+    end
+  end
 
-	def open_cards
+  def open_cards
     @interface.player_info(@player.name, @player.hand.cards, @player.hand.check)
     @interface.dealer_info(@diller.hand.cards, @diller.hand.check)
     if @diller.hand.check == @player.hand.check
