@@ -4,22 +4,22 @@ require_relative 'hand'
 require_relative 'deck'
 
 class Main
-	def initialize(interface)
-		@interface = interface
-		interface.get_name
-		player = gets.chomp
-		@player = Player.new player
-		@diller = Player.new ('Diller')
-		@deck = Deck.new
-		start
-	end
+  def initialize(interface)
+    @interface = interface
+    interface.get_name
+    player = gets.chomp
+    @player = Player.new player
+    @diller = Player.new ('Diller')
+    @deck = Deck.new
+    start
+  end
 
-	def start
-		@interface.play
-		new_play
-		2.times do
-			@deck.create_card
-			@diller.hand.cards << @deck.random_card
+  def start
+    @interface.play
+    new_play
+    2.times do
+      @deck.create_card
+      @diller.hand.cards << @deck.random_card
       @deck.create_card
       @player.hand.cards << @deck.random_card
     end
@@ -30,12 +30,12 @@ class Main
     choose_turn
 	end
 
-	def new_play
-  	@diller.hand.check = 0
-  	@diller.hand.cards = []
-  	@player.hand.check = 0
-  	@player.hand.cards = []
-	end
+    def new_play
+      @diller.hand.check = 0
+      @diller.hand.cards = []
+      @player.hand.check = 0
+      @player.hand.cards = []
+    end
 
 	def bank_change(player)
 		if player.bank > 10
