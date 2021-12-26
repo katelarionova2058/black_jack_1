@@ -16,8 +16,8 @@ class Deck
   private
 
   def make_deck
-  	Card::SUITS.each do |suit|
+    Card::SUITS.each do |suit|
       Card::CARDS.each { |value| @start_deck << Card.new(value, suit) }
-  	end
+    end
   end
 end
